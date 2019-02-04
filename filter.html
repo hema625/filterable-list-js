@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>Filterable List</title>
+        <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class = "container">
+            <h1 class = "center-align">My Contacts</h1>
+            <input type = "text" id = "filter" placeholder="Search names" >
+            <ul  id ="names" class = "collection with-header">
+                <li class = "collection-header">
+                    <h5>A</h5>
+                </li>
+                <li class = "collection-item">
+                        <a href= "#"> Appa </a>
+                </li>
+                <li class = "collection-item">
+                        <a href= "#"> Amma </a>
+                </li>
+                <li class = "collection-item">
+                        <a href= "#"> Mama </a>
+                </li>
+                <li class = "collection-item">
+                        <a href= "#"> Akash </a>
+                </li>
+                <li class = "collection-item">
+                        <a href= "#"> Ananya </a>
+                </li>
+                <li class = "collection-header">
+                        <h5>B</h5>
+                    </li>
+                    <li class = "collection-item">
+                            <a href= "#"> Brother </a>
+                    </li>
+                    <li class = "collection-item">
+                            <a href= "#"> Buhari </a>
+                    </li>
+                    <li class = "collection-item">
+                            <a href= "#"> Bharath </a>
+                    </li>
+                    <li class = "collection-header">
+                            <h5>C</h5>
+                        </li>
+                        <li class = "collection-item">
+                                <a href= "#"> Chintan </a>
+                        </li>
+                        <li class = "collection-item">
+                                <a href= "#"> CM </a>
+                        </li>
+                        <li class = "collection-item">
+                                <a href= "#"> C Car </a>
+                        </li>
+                        <li class = "collection-header">
+                                <h5>U</h5>
+                            </li>
+                            <li class = "collection-item">
+                                    <a href= "#"> Uday </a>
+                            </li>
+                            <li class = "collection-item">
+                                    <a href= "#"> Udaya </a>
+                            </li>
+                            <li class = "collection-item">
+                                    <a href= "#"> Uma </a>
+                            </li>
+            </ul>
+        </div>
+
+        <script>
+            let filter = document.getElementById("filter");
+            // let ulnames = document.getElementById("names");
+            let lin = document.querySelectorAll("li.collection-item");
+
+            filter.addEventListener("keyup",filternames);
+            // ulnames.addEventListener("click", function(){
+            //     console.log(ulnames);
+            // })
+            // lin.addEventListener("click", function(){
+            //     console.log(lin);
+            // })
+
+            function filternames() {
+                let filterValue = filter.value.toLowerCase();
+                 console.log(filterValue);
+
+                 for (let i = 0; i < lin.length ; i++) {
+                    //  console.log(lin[i]);
+                     let a = lin[i].getElementsByTagName('a')[0];
+                    //   console.log(a.innerHTML);
+                    if(a.innerHTML.toLowerCase().indexOf(filterValue) >-1 ) {
+                        lin[i].style.display = '';
+                    }
+                    else {
+                        lin[i].style.display = 'none';
+                    }
+                  }
+            }
+        </script>
+
+    </body>
+
+    </html>
